@@ -14,15 +14,22 @@ export default function Calendars({cals}: {cals: {name: string, url: string[], g
         router.refresh()
     }
     for (let cal of cals) {
-        calComponents.push(<li key={cal.group_id}>{cal.name} <button onClick={() => delCal(cal.group_id)}>delete</button></li>)
+        calComponents.push(
+        <li key={cal.group_id}>{cal.name} <button className='float-end' onClick={() => delCal(cal.group_id)}>delete</button></li>
+        )
     }
     return (
         <>
-            <div>Your Calendars</div>
-            <div><button onClick={() => setAdder(true)}>Add Calendar</button></div>
-            <ul>
-                {calComponents}
-            </ul>
+            <div className="flex flex-col w-1/3">
+                <div className="flex flex-row w-full">
+                    <div className="text-3xl">Your Calendars</div>
+                    <div className="flex grow"></div>
+                    <div className='items-center place-items-center place-content-center float-end'><button onClick={() => setAdder(true)}>Add</button></div>
+                </div>
+                <ul>
+                    {calComponents}
+                </ul>
+            </div>
             {adder && <CalPicker onClose={() => setAdder(false)}/>}
         </>
     )

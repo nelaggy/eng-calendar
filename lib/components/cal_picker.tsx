@@ -26,12 +26,20 @@ export default function CalPicker({onClose} : {onClose: () => void}) {
         }
     } 
     const onPicked = (selected: string[]) => {
+        setSubmit(false)
         setGroups(selected)
-        setSubmit(true);
+        if (selected.length > 0) {
+            setSubmit(true);
+        }
     }
     const onUpdateLabGroup = (selected: {yearGroup: 'IA'|'IB', groupNo: number}) => {
+        setSubmit(false)
         setLabGroup(selected)
-        setSubmit(true);
+        const max = selected.yearGroup == 'IA' ? 180 : (selected.yearGroup == 'IB' ? 163 : 0)
+        if ((selected.yearGroup == 'IA' || selected.yearGroup == 'IB') && selected.groupNo > 0 && selected.groupNo <= max){
+            setSubmit(true);
+        }
+        
     }
     const onSubmit = async () => {
         if (typePicked == 'Lectures') {
@@ -50,11 +58,16 @@ export default function CalPicker({onClose} : {onClose: () => void}) {
         onClose()
     }
     return (
-        <>
+        <div className='absolute inset-0 flex justify-center items-center z-10'>
+            <div className="w-1/4 flex justify-center items-center z-10 flex-col space-y-4">
             <TypePicker onChange={(value) => onTypeChange(value)} />
             {typePicked == 'Lectures' && <LecturePicker lectureGroups={lectureGroups} onPicked={onPicked} /> }
             {typePicked == 'Labs' && <LabPicker onPicked={onUpdateLabGroup} />}
-            {submit && <button type="submit" onClick={() => onSubmit()}>Add</button>}
-        </>
+            <div className="flex flex-row w-full justify-between">
+                <div><button type="button" onClick={() => onClose()}>Cancel</button></div>
+                <div><button type="submit" onClick={() => onSubmit()} disabled={!submit}>Add</button></div>
+            </div>
+            </div>
+        </div>
     )
 }
