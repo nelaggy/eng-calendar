@@ -1,6 +1,6 @@
 import { generate_cal } from "@/lib/cal/generator";
-import { getCalendar } from "@/lib/fetch";
-import { NextRequest, NextResponse } from "next/server";
+import { getCalendar } from "@/lib/server/fetch";
+import { NextRequest } from "next/server";
 
 export async function GET(req: NextRequest, {params}: {params: {id: string}}) {
     const events = await getCalendar(params.id)
