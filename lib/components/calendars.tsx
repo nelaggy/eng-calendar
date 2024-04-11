@@ -5,7 +5,7 @@ import CalPicker from "./cal_picker"
 import { delGroups } from "../server/cal_pickers"
 import { useRouter } from "next/navigation"
 
-export default function Calendars({cals}: {cals: {name: string, url: string[], group_id: string}[]}) {
+export default function Calendars({cals, children}: {cals: {name: string, url: string[], group_id: string}[], children: React.ReactNode}) {
     const calComponents = []
     const [adder, setAdder] = useState(false)
     const router = useRouter()
@@ -31,6 +31,7 @@ export default function Calendars({cals}: {cals: {name: string, url: string[], g
                 </ul>
             </div>
             {adder && <CalPicker onClose={() => setAdder(false)}/>}
+            {children}
         </>
     )
 }

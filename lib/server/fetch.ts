@@ -1,8 +1,13 @@
 import { createClient } from "@/utils/supabase/server";
 import type { CalEvent } from "@/lib/cal/generator";
 
-const getUser = async () => {
-
+export const getUser = async () => {
+    const supabase = createClient()
+    const userId = (await supabase.auth.getUser()).data.user?.id
+    if (!userId) {
+        throw Error('not logged in')
+    }
+    return userId
 }
 
 export const getCalendar = async (userId: string) : Promise<CalEvent[]> => {
