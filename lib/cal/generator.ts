@@ -23,7 +23,7 @@ export const generate_cal = (events : CalEvent[]) : ICalCalendar => {
             location: e.location,
             id: e.id,
             stamp: e.dtstamp ?? undefined,
-            organizer: e.organiser,
+            organizer: e.organiser ?? undefined,
             description: `${e.speaker ?? ''}\n${e.group ?? ''}`
         })
     }
