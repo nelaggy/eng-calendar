@@ -37,6 +37,6 @@ export default function Login() {
     }
   
     return (
-        <button onClick={handleSignIn}>Login (Raven)</button>
+        <button onClick={handleSignIn}>Raven Login</button>
     )
   }

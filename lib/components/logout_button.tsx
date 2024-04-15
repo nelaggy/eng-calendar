@@ -10,6 +10,6 @@ export default function Logout () {
         router.refresh()
     }
     return (
-        <button className="absolute right-4 top-4" onClick={handleSignOut}>Logout</button>
+        <button className="absolute right-10 top-6" onClick={handleSignOut}>Logout</button>
     )
 }

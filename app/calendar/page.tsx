@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 export default async function Page() {
     const groups = await getGroups()
     return (
-        <div className='m-4'>
-            <div className='text-6xl text-center'>Calendar</div>
+        <div className="p-4">
+            <div className='invisible text-6xl sm:visible text-center'>Calendar</div>
             <Calendars cals={groups}>
                 <CalLink/>
             </Calendars>

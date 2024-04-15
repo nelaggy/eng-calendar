@@ -59,7 +59,7 @@ export default function CalPicker({onClose} : {onClose: () => void}) {
     }
     return (
         <div className='absolute inset-0 flex justify-center items-center z-10'>
-            <div className="w-1/4 flex justify-center items-center z-10 flex-col space-y-4">
+            <div className="w-64 flex justify-center items-center z-10 flex-col space-y-4">
             <TypePicker onChange={(value) => onTypeChange(value)} />
             {typePicked == 'Lectures' && <LecturePicker lectureGroups={lectureGroups} onPicked={onPicked} /> }
             {typePicked == 'Labs' && <LabPicker onPicked={onUpdateLabGroup} />}
