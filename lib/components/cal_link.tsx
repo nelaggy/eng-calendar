@@ -1,7 +1,7 @@
 import { getUser } from "@/lib/server/fetch"
 
 export default async function CalLink() {
-    const baseURL = 'localhost:3000/calendar/'
+    const baseURL = process.env.AUTH0_BASE_URL+'/calendar/'
     const userId = await getUser()
     const webcalURL = baseURL + userId + '/calendar.ics'
     return (
