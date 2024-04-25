@@ -32,12 +32,12 @@ export const GET = handleAuth({
                 }
             })
             const hash = data.properties?.hashed_token
-            const redir = (data.properties?.redirect_to ?? 'localhost:3000') +`/auth/callback?token=${hash}`
+            const redir = (data.properties?.redirect_to ?? process.env.AUTH0_BASE_URL) +`/auth/callback?token=${hash}`
 
             if(hash) {
                 return NextResponse.redirect(redir)
             }
         }
-        return NextResponse.redirect('localhost:3000')
+        return NextResponse.redirect(process.env.AUTH0_BASE_URL!)
     }
 });
