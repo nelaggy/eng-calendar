@@ -12,7 +12,7 @@ export const getUser = async () => {
 
 export const getCalendar = async (userId: string) : Promise<CalEvent[]> => {
     const supabase = createClient()
-    const {data, error} = await supabase.rpc('assemble_calendar', {user_id: userId});
+    const {data, error} = await supabase.rpc('assemble_calendar', {userid: userId});
     if (error) {
         console.log(error)
         throw Error('h')
