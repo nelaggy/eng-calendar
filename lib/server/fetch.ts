@@ -26,7 +26,7 @@ export const getGroups = async () => {
     if (!userId) {
         throw Error('not logged in')
     }
-    const { data, error } = await supabase.rpc('get_groups', {user_id: userId})
+    const { data, error } = await supabase.rpc('get_groups', {userid: userId})
     if (error) {
         console.log(error)
         throw Error('h')
