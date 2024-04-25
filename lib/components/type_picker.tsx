@@ -1,7 +1,7 @@
 import { ChangeEventHandler, EventHandler } from "react"
 
 export default function TypePicker ({onChange} : {onChange: (value: 'Lectures'|'Labs'|'CUES') => void}) {
-    const calTypes = [{name: 'Lectures', value: 'Lectures'}, {name: 'Labs', value: 'Labs'}, {name: 'CUES Events', value: 'CUES'}]
+    const calTypes = [{name: 'Lectures', value: 'Lectures'}, {name: 'Labs', value: 'Labs'}]
     const optionElems = calTypes.map((e) => <option className="bg-black" key={e.value} value={e.value}>{e.name}</option>)
     const onTypeChange = (value: string) => {
         if (value != 'Lectures' && value != 'Labs' && value != 'CUES') {
