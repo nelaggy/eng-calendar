@@ -12,7 +12,7 @@ export default async function middleware (req: NextRequest) {
         if (user_id && req.nextUrl.pathname.startsWith('/login')) {
             return Response.redirect(new URL('/calendar', req.url))
         }
-        if (!user_id && req.nextUrl.pathname.startsWith('/calendar')) {
+        if (!user_id && req.nextUrl.pathname == '/calendar') {
             return Response.redirect(new URL('/login', req.url))
         }
     
