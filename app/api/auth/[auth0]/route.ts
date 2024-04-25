@@ -1,6 +1,8 @@
 import { createClient } from '@supabase/supabase-js';
-import { AppRouteHandlerFnContext, Session, handleAuth, handleCallback, getSession, handleLogin } from '@auth0/nextjs-auth0';
+import { AppRouteHandlerFnContext, Session, handleAuth, handleCallback, getSession, handleLogin } from '@auth0/nextjs-auth0/edge';
 import { NextRequest, NextResponse } from 'next/server';
+
+export const runtime = 'edge'
 
 const afterCallback = async (req: NextRequest, session: Session) => {
     return session

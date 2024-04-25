@@ -4,6 +4,8 @@ import Logout from "@/lib/components/logout_button"
 import { getGroups } from "@/lib/server/fetch"
 import { Metadata } from "next"
 
+export const runtime = 'edge'
+
 export const metadata: Metadata = {
     title: 'Calendar'
 }
