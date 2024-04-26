@@ -46,5 +46,5 @@ export const delGroups = async (groupIds: string[]) => {
     if (!userId) {
         throw Error('not logged in')
     }
-    return await supabase.rpc('del_groups', {user_id: userId, group_ids: groupIds})
+    return await supabase.rpc('del_groups', {userid: userId, group_ids: groupIds})
 }
