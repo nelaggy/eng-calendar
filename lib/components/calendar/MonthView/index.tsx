@@ -64,6 +64,7 @@ export const MonthView = ({ events }: { events: CalEvent[] }) => {
           return (
             <span key={week.toString()}>
               <CalendarRow
+                month={month}
                 days={week}
                 events={filteredEvents.filter((e) => {
                   if (!e.start_time) return false;
@@ -97,9 +98,11 @@ const CalendarHeader = ({ days }: { days: string[] }) => {
 };
 
 const CalendarRow = ({
+  month,
   days,
   events,
 }: {
+  month: number;
   days: number[];
   events: CalEvent[];
 }) => {
@@ -109,6 +112,7 @@ const CalendarRow = ({
         return (
           <span key={Math.random()}>
             <DayCell
+              month={month}
               day={day}
               events={events.filter((e) => {
                 if (!e.start_time) return false;
@@ -121,4 +125,3 @@ const CalendarRow = ({
     </div>
   );
 };
-

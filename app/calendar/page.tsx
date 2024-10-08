@@ -1,6 +1,6 @@
 import CalLinks from "@/lib/components/CalLinks";
 import { CalendarView } from "@/lib/components/calendar/CalendarView";
-import Calendars from "@/lib/components/Calendars";
+import { Calendars } from "@/lib/components/Calendars";
 import { Logout } from "@/lib/components/LogoutButton";
 import { getGroups, getCalendar, getUser } from "@/lib/server/fetch";
 import { Metadata } from "next";

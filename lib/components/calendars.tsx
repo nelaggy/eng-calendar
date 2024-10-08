@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation"
 import { DeleteButton } from "./ui/DeleteButton"
 import { AddButton } from "./ui/AddButton"
 
-export default function Calendars({
+export const Calendars = ({
     cals, 
     children
 }: {
