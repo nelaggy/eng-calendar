@@ -17,7 +17,7 @@ export const Calendars = ({
         group_id: string
     }[], 
     children: React.ReactNode
-}) {
+}) => {
     const calComponents = []
     const [adder, setAdder] = useState(false)
     const router = useRouter()
