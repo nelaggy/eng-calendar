@@ -16,9 +16,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className + 'bg-slate-100 dark:bg-slate-800 bg-no-repeat min-h-screen'}>
+      <body className={inter.className + 'bg-gray-50 dark:bg-neutral-900 dark:text-gray-50 bg-no-repeat min-h-screen'}>
         {children}
-        <div className="absolute bottom-1 right-1">&copy; Galen Lee 2024</div>
       </body>
     </html>
   );

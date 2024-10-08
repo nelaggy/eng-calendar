@@ -1,8 +1,9 @@
 'use client'
 import { createClient } from "@/utils/supabase/client"
 import { useRouter } from "next/navigation"
+import { Button } from "./ui/Button"
 
-export default function Logout () {
+export const Logout=  () => {
     const router = useRouter()
     const supabase = createClient()
     const handleSignOut = async () => {
@@ -10,6 +11,8 @@ export default function Logout () {
         router.refresh()
     }
     return (
-        <button className="absolute right-10 top-6" onClick={handleSignOut}>Logout</button>
+        <div className="absolute right-10 top-6">
+            <Button onClick={handleSignOut}>Logout</Button>
+        </div>
     )
 }
