@@ -12,7 +12,7 @@ export default function LabPicker({
   const [yearGroup, setYearGroup] = useState("");
   const [groupNo, setGroupNo] = useState(0);
   const yearGroupOpts = yearGroups.map((e) => (
-    <option className="bg-black" key={e} value={e}>
+    <option className="dark:bg-neutral-900" key={e} value={e}>
       {e}
     </option>
   ));
@@ -34,7 +34,7 @@ export default function LabPicker({
             setYearGroup(e.target.value);
           }}
         >
-          <option className="bg-black" disabled key="" value="">
+          <option className="dark:bg-neutral-900" disabled key="" value="">
             {" "}
             -- select year group --{" "}
           </option>
@@ -48,7 +48,7 @@ export default function LabPicker({
             className="bg-inherit w-full max-w-xs pr-4 pl-5 py-2 text-sm font-normal shadow-xs border border-gray-300 rounded-lg placeholder-gray-400 focus:outline-none leading-relaxed"
             type="number"
             min={1}
-            max={yearGroup == "IA" ? 180 : yearGroup == "IB" ? 163 : 1}
+            max={yearGroup == "IA" ? 180 : yearGroup == "IB" ? 168 : 1}
             onChange={(e) => {
               setGroupNo(e.target.valueAsNumber);
             }}

@@ -37,7 +37,7 @@ export const DayCell = ({
             </span>
             {isDesktop &&
               sortedEvents.slice(0, 2).map((e) => (
-                <span key={e.id} className="text-xs text-gray-50">
+                <span key={e.id} className="text-xs">
                   {e.start_time &&
                     new Date(e.start_time).toLocaleTimeString([], {
                       hour: "2-digit",
@@ -92,7 +92,7 @@ const DayModal = ({
       onClick={onDismiss}
     >
       <div
-        className="w-96 flex items-center z-10 flex-col space-y-4 bg-neutral-900 min-h-100 p-6 rounded-lg"
+        className="w-96 flex items-center z-10 flex-col space-y-4 bg-neutral-50 dark:bg-neutral-900 min-h-100 p-6 rounded-lg"
         onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}
       >
         <h3 className="text-xl font-semibold w-full text-center">
@@ -100,7 +100,7 @@ const DayModal = ({
         </h3>
         <div className="flex flex-grow justify-center flex-col space-y-2">
           {events.map((e) => (
-            <div key={e.id} className="text-sm text-gray-50">
+            <div key={e.id} className="text-sm">
               {e.start_time &&
                 e.end_time &&
                 new Date(e.start_time).toLocaleTimeString([], {

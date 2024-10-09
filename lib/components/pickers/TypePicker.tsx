@@ -10,7 +10,7 @@ export default function TypePicker({
     { name: "Labs", value: "Labs" },
   ];
   const optionElems = calTypes.map((e) => (
-    <option className="bg-neutral-900" key={e.value} value={e.value}>
+    <option className="dark:bg-neutral-900" key={e.value} value={e.value}>
       {e.name}
     </option>
   ));
@@ -31,7 +31,7 @@ export default function TypePicker({
         id="calType"
         onChange={(e) => onTypeChange(e.target.value)}
       >
-        <option className="bg-neutral-900" disabled value="" key="">
+        <option className="dark:bg-neutral-900" disabled value="" key="">
           {" "}
           -- select calendar type --{" "}
         </option>

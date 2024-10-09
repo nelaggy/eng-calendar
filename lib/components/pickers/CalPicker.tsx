@@ -49,7 +49,7 @@ export default function CalPicker({ onClose }: { onClose: () => void }) {
     setSubmit(false);
     setLabGroup(selected);
     const max =
-      selected.yearGroup == "IA" ? 180 : selected.yearGroup == "IB" ? 163 : 0;
+      selected.yearGroup == "IA" ? 180 : selected.yearGroup == "IB" ? 168 : 0;
     if (
       (selected.yearGroup == "IA" || selected.yearGroup == "IB") &&
       selected.groupNo > 0 &&
@@ -76,7 +76,7 @@ export default function CalPicker({ onClose }: { onClose: () => void }) {
   };
   return (
     <div className="absolute inset-0 w-full h-full flex justify-center items-center z-10 bg-black/50">
-      <div className="w-96 flex items-center z-10 flex-col space-y-4 bg-neutral-900 min-h-100 p-6 rounded-lg">
+      <div className="w-96 flex items-center z-10 flex-col space-y-4 bg-neutral-50 dark:bg-neutral-900 min-h-100 p-6 rounded-lg">
         <h3 className="text-xl font-semibold">Add Calendar</h3>
         <div className="flex-col flex-grow space-y-4 w-11/12">
           <TypePicker onChange={(value) => onTypeChange(value)} />

@@ -8,7 +8,7 @@ export default function LecturePicker({
   onPicked: (selected: string[]) => void;
 }) {
   const optionElems = lectureGroups.map((e) => (
-    <option className="bg-neutral-900" key={e.group_id} value={e.group_id}>
+    <option className="dark:bg-neutral-900" key={e.group_id} value={e.group_id}>
       {e.name}
     </option>
   ));
@@ -33,7 +33,7 @@ export default function LecturePicker({
           onChange(selectedOptions);
         }}
       >
-        <option className="bg-neutral-900" disabled value="" key="">
+        <option className="dark:bg-neutral-900" disabled value="" key="">
           {" "}
           -- select year group --{" "}
         </option>
