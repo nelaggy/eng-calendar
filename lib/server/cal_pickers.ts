@@ -5,6 +5,42 @@ export type YearGroup = Database['public']['Enums']['year_groups']
 type LectureGroupsReturn = Database['public']['Functions']['all_groups_by_type']['Returns']
 //export type CalType = Database['public']['Enums']['cal_type']
 
+const sortLectureGroups = (groups: LectureGroupsReturn) => {
+    const sortedGroups = groups.sort((a, b) => {
+        const aModule = a.name.split(' ')[0]
+        const bModule = b.name.split(' ')[0]
+        if (aModule == 'IA') {
+            if (bModule == 'IA') {
+                return 0
+            }
+            return -1
+        }
+        if (aModule == 'IB') {
+            if (bModule == 'IA') {
+                return 1
+            }
+            if (bModule == 'IB') {
+                return 0
+            }
+            return -1
+        }
+        const aYear = parseInt(aModule[0])
+        const bYear = parseInt(bModule[0])
+        const aCode = aModule[1]
+        const bCode = bModule[1]
+        const aNumber = parseInt(aModule.slice(2))
+        const bNumber = parseInt(bModule.slice(2))
+        if (aYear == bYear) {
+            if (aCode == bCode) {
+                return aNumber - bNumber
+            }
+            return aCode < bCode ? -1 : 1
+        }
+        return aYear - bYear
+    })
+    return sortedGroups
+}
+
 export const getLectureGroups = async () => {
     const supabase = createClient()
     const userId = (await supabase.auth.getUser()).data.user?.id
@@ -12,7 +48,7 @@ export const getLectureGroups = async () => {
         throw Error('not logged in')
     }
     const { data, error } = await supabase.rpc('all_groups_by_type', {caltype: 'Lectures'})
-    return data as LectureGroupsReturn;
+    return sortLectureGroups(data as LectureGroupsReturn);
 }
 
 export const addGroups = async (groupIds: string[]) => {

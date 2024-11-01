@@ -14,7 +14,7 @@ export default async function CalLinks() {
         <div className="flex flex-col justify-between w-full space-y-2 md:w-72 mt-6">
             <LinkButton href={"webcal://"+webcalURL}>Subscribe to Calendar</LinkButton>
             <LinkButton href={'/calendar/'+ userId + '/calendar.ics'}>Download as .ical</LinkButton>
-            <p className="flex flex-row w-full justify-between">Or copy calendar link: <CopyButton/></p>
+            <p className="flex flex-row w-full justify-between">Or copy calendar link: <CopyButton content={webcalURL}/></p>
         </div>
     )
 }
