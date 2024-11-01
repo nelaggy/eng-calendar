@@ -35,7 +35,7 @@ export default function LecturePicker({
       >
         <option className="dark:bg-neutral-900" disabled value="" key="">
           {" "}
-          -- select year group --{" "}
+          -- select lecture group --{" "}
         </option>
         {optionElems}
       </select>

@@ -18,7 +18,6 @@ export const DayCell = ({
   const [showModal, setShowModal] = useState(false);
   useEffect(() => {
     const handleResize = () => {
-      console.log(window.innerWidth);
       setIsDesktop(window.innerWidth > 1024);
     };
     window.addEventListener("resize", handleResize);
