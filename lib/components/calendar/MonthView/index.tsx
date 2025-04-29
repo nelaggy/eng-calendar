@@ -28,7 +28,7 @@ export const MonthView = ({ events }: { events: CalEvent[] }) => {
   };
 
   const days =
-    month < 3 ? cal.monthDays(2024, month + 9) : cal.monthDays(2023, month - 3);
+    month < 3 ? cal.monthDays(2024, month + 9) : cal.monthDays(2025, month - 3);
   const filteredEvents = events.filter((e) => {
     if (!e.start_time) return false;
     const eventMonth = new Date(e.start_time).getMonth();
